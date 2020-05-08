@@ -1,0 +1,1 @@
+Currency tracker app made with flutter
