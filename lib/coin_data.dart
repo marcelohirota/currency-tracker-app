@@ -31,12 +31,13 @@ const List<String> cryptoList = [
   'LTC',
 ];
 
-const coinAPIURL = 'https://rest.coinapi.io/v1/exchangerate';
+const bitcoinAverageURL =
+    'https://apiv2.bitcoinaverage.com/indices/global/ticker';
 const apiKey = 'CDAA61DB-C618-4EB8-A039-2DE765775678';
 
 class CoinData {
-  Future getCoinData() async {
-    String requestURL = '$coinAPIURL/BTC/USD?apikey=$apiKey';
+  Future getCoinData(String selectedCurrency) async {
+    String requestURL = '$bitcoinAverageURL/BTC$selectedCurrency';
     http.Response response = await http.get(requestURL);
 
     if (response.statusCode == 200) {
